@@ -5,8 +5,9 @@ A cura di Luca Miglior e Federico Ramacciotti
 
 ---
 ## Svolgimento della cattura
-La cattura è stata avviata prima del collegamento al sito fast.com
-Il collegamento al sito fast.com fa cominciare immediatamente lo speedtest, che dura circa 20 secondi. Al termine dello speedtest la cattura su wireshark è stata interrotta ed è stato analizzato il file .pcap generato per filtrare esclusivamente i pacchetti generati sulla rete dal sito web.
+La cattura è stata avviata prima del collegamento al sito fast.com  
+
+Il collegamento al sito fast.com determina l'inizio dello speedtest, che dura circa 20 secondi. Al termine dello speedtest, la cattura su wireshark è stata interrotta ed è stato analizzato il file .pcap generato per filtrare esclusivamente i pacchetti generati sulla rete dal sito web.
 
 ## Filtro applicato al traffico e Endpoints
 Per creare i filtri da applicare alla cattura, si è ragionato sul funzionamento di un'applicazione di speedtest: questa deve inviare attraverso la rete grandi quantità di dati, ad un limitato numero di host, per poterne misurare la capacità.
@@ -46,7 +47,7 @@ La macchina 192.168.1.3, con wireshark, invece ha prodotto il seguente risultato
 
 Una media di 50Mbit/s in Download, e circa 20Mbit/s in Upload.
 
-Come spiegeare questa differenza di circa 2-3 Mbit/s fra le due misurazioni?
+### Come spiegeare questa differenza di circa 2-3 Mbit/s fra le due misurazioni?
 
 FAST.com, dal momento che è stato avviato su un browser web, sarà in grado di "catturare" e misurare esclusivamente il traffico del livello applicativo dello stack TCP/IP. 
 La misura dunque non tiene conto di tutto il traffico prodotto dai livelli sottostanti, in particolare dagli header del livello IP e Ethernet, la cui somma è circa 40Byte/pacchetto (~3% su pacchetti di 1500B);
