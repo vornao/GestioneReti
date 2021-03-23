@@ -41,14 +41,12 @@ Alla conclusione dello speedtest, FAST.com ha prodotto il seguente risultato:
 
 48Mbit/s in Download, e 16Mbit/s in upload, scambiando circa 70MB di dati in totale fra client e server.
 
-La macchina 192.168.1.3, con wireshark, invece ha prodotto il seguente risultato:
+La macchina 192.168.1.3, con Wireshark, ha invece prodotto il seguente risultato:
 
 ![capture screenshot](./img/cattura_filtered.png)
 
 Una media di 50Mbit/s in Download, e circa 20Mbit/s in Upload.
 
-### Come spiegare questa differenza di circa 2-3 Mbit/s fra le due misurazioni?
-
-FAST.com, dal momento che è stato avviato su un browser web, sarà in grado di "catturare" e misurare esclusivamente il traffico del livello applicativo dello stack TCP/IP. 
-La misura dunque non tiene conto di tutto il traffico prodotto dai livelli sottostanti, in particolare dagli header del livello IP e Ethernet, la cui somma è circa 40Byte/pacchetto (~3% su pacchetti di 1500B);
-Wireshark, invece, cattura i frame al livello della scheda di rete: nella sua misura sono quindi presenti tutti quei dati che FAST.com non può catturare.
+Si può notare quindi una differenza di 2-3Mbit/s tra la misurazione di FAST.com e di Wireshark.
+Questo è dovuto al fatto che FAST.com, essendo stato avviato da un browser web, è in grado di "catturare" e misurare esclusivamente il traffico del livello applicativo dello stack TCP/IP, al contrario di Wireshark che intercetta i pacchetti raw e può quindi analizzare tutti gli stati dello stack protocollare.
+La misura effettuata dallo speedtest dunque non tiene conto del traffico prodotto ai livelli sottostanti (cioè il livello di rete e collegamento). In particolare, Wireshark rileva gli header dei livelli IP e Ethernet, i quali, considerando 40Byte a pacchetto (20Byte per ciascun livello, circa il 3% del totale su pacchetti da 1500Byte), vanno ad aumentare il totale misurato di 2-3Mbit/s, ricavando la discrepanza che si era notata tra i dati di FAST.com e quelli misurati da Wireshark.
