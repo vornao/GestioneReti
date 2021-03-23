@@ -47,26 +47,8 @@ La macchina 192.168.1.3, con wireshark, invece ha prodotto il seguente risultato
 
 Una media di 50Mbit/s in Download, e circa 20Mbit/s in Upload.
 
-### Come spiegeare questa differenza di circa 2-3 Mbit/s fra le due misurazioni?
+### Come spiegare questa differenza di circa 2-3 Mbit/s fra le due misurazioni?
 
 FAST.com, dal momento che è stato avviato su un browser web, sarà in grado di "catturare" e misurare esclusivamente il traffico del livello applicativo dello stack TCP/IP. 
 La misura dunque non tiene conto di tutto il traffico prodotto dai livelli sottostanti, in particolare dagli header del livello IP e Ethernet, la cui somma è circa 40Byte/pacchetto (~3% su pacchetti di 1500B);
 Wireshark, invece, cattura i frame al livello della scheda di rete: nella sua misura sono quindi presenti tutti quei dati che FAST.com non può catturare.
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
