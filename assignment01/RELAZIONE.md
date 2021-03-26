@@ -1,7 +1,7 @@
 # Relazione Assignment 1 Gestione di reti
 
 ## Analisi del traffico di rete generato dal sito web fast.com con l'utilizzo di wireshark
-A cura di Luca Miglior e Federico Ramacciotti
+A cura di Luca Miglior (580671) e Federico Ramacciotti (582646) - Gruppo 8
 
 ---
 ## Svolgimento della cattura
